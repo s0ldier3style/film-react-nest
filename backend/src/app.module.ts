@@ -2,14 +2,11 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
+
 import { configProvider } from './app.config.provider';
-import { FilmsController } from './films/films.controller';
-import { FilmsService } from './films/films.service';
-import { OrderService } from './order/order.service';
-import { OrderController } from './order/order.controller';
 import { FilmsModule } from './films/films.module';
-import { OrderModule } from './order/order.module';
-import { MongooseModule } from '@nestjs/mongoose';
+import { OrdersModule } from './order/order.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -21,11 +18,10 @@ import { MongooseModule } from '@nestjs/mongoose';
       isGlobal: true,
       cache: true,
     }),
-    MongooseModule.forRoot(process.env.DATABASE_URL),
+    DatabaseModule,
     FilmsModule,
-    OrderModule,
+    OrdersModule,
   ],
-  controllers: [FilmsController, OrderController],
-  providers: [configProvider, FilmsService, OrderService],
+  providers: [configProvider],
 })
 export class AppModule {}
