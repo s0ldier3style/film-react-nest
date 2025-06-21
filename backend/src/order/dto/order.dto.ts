@@ -1,7 +1,9 @@
 export class CreateOrderDto {
+  id?: number;
   email: string;
   phone: string;
   tickets: {
+    id?: number;
     film: string;
     session: string;
     daytime: string;

@@ -1,5 +1,7 @@
 # FILM!
 
+Ссылка на деплой: http://overrated.nomorepartiessbs.ru/
+
 ## Установка
 
 ### MongoDB
