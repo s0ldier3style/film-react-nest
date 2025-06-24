@@ -6,11 +6,11 @@ export class FilmsService {
   constructor(private readonly filmsRepository: FilmsRepository) {}
 
   async getAllFilms(): Promise<FilmDto[]> {
-    return this.filmsRepository.findAll();
+    return await this.filmsRepository.findAll();
   }
 
   async getFilmSchedule(id: string): Promise<FilmDto['schedule']> {
     const film = await this.filmsRepository.findById(id);
-    return film.schedule;
+    return film.schedules;
   }
 }
