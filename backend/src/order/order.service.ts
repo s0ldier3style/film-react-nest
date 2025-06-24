@@ -1,7 +1,7 @@
 import { Injectable, ConflictException } from '@nestjs/common';
 import { OrderRepository } from '../repository/order.repository';
 import { CreateOrderDto } from './dto/order.dto';
-import { FilmsRepository } from 'src/repository/films.repository';
+import { FilmsRepository } from '../repository/films.repository';
 
 @Injectable()
 export class OrderService {

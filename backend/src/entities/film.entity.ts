@@ -6,7 +6,7 @@ export class Film {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({ nullable: true })
   title: string;
 
   @Column({ nullable: true })
@@ -30,6 +30,6 @@ export class Film {
   @Column({ nullable: true })
   cover: string;
 
-  @OneToMany(() => Schedules, (schedule) => schedule.film)
-  schedules: Schedules[];
+  @OneToMany(() => Schedules, (schedule) => schedule.film, { cascade: true })
+  schedules?: Schedules[];
 }
